@@ -1,21 +1,20 @@
 import mensajeros.*
 import destinos.*
+import mensajeria.*
 
 describe "group of tests for mensajeros" {
   test "neo puedo llevar paquete a puente" {
     assert.that(paquete.sePuedeEntregar(neo))
   }
 
-
-  test "roberto puede llevar un paquete que está pago en un camión que tiene un acoplado." {
-    roberto.vehiculo(camion)
-    paquete.pagar(100)
-    camion.cantidadDeAcoplados(1)
-    assert.equals(true, paquete.sePuedeEntregar(roberto,puenteDeBrooklyn))
+  test "facturacion" {
+    empresa.enviar(paquete)
+    empresa.enviar(paquetito)
+    paqueton.pagar(200)
+    empresa.enviar(paqueton)
+    assert.equals(50, empresa.facturacion())
   }
+  
 
- test "neo con crédito no puede llevar un paquete que no está pago a la matrix." {
-   paquete.estaPago()
-   assert.equals(false, paquete.sePuedeEntregar(neo,matrix))
- }
+ 
 }
