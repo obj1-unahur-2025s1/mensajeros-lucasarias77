@@ -2,25 +2,30 @@ import mensajeros.*
 
 
 object puenteDeBrooklyn {
-    method puedePasar(unMensajero) = unMensajero.peso() <= 1000
+    method dejarPasar(alguien) = alguien.peso() <= 1000
 }
 
 object matrix {
-    method puedePasar(unMensajero) = unMensajero.puedeLlamar()
+    method dejarPasar(alguien) = alguien.puedeLlamar()
 }
 
 
 // Paquetes
 object paquete {
-    var pagado = 0
     
-    method pagar(unaCantidad) {
-        pagado = pagado + unaCantidad
+    var destino = puenteDeBrooklyn 
+
+    var pagado = true
+
+    method sePuedeEntregar(unMensajero) = 
+        self.estaPago() && destino.dejarPasar(unMensajero)
+    
+    method estaPago() = pagado
+
+    method destino(nuevo){
+        destino = nuevo
     }
-
-    method estaPago() = pagado >= 50
-
-    method sePuedeEntregar(unMensajero, unLugar) = 
-        self.estaPago() && unLugar.puedePasar(unMensajero)
 }
+
+
 

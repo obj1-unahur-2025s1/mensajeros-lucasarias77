@@ -2,6 +2,10 @@ import mensajeros.*
 import destinos.*
 
 describe "group of tests for mensajeros" {
+  test "neo puedo llevar paquete a puente" {
+    assert.that(paquete.sePuedeEntregar(neo))
+  }
+
 
   test "roberto puede llevar un paquete que está pago en un camión que tiene un acoplado." {
     roberto.vehiculo(camion)

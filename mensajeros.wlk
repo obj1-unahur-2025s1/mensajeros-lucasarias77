@@ -2,7 +2,7 @@ import destinos.*
 
 
 object roberto {
-  var vehiculo = null
+  var vehiculo = bicicleta
 
   method peso() {
     return 90 + vehiculo.peso()
@@ -24,10 +24,15 @@ object neo {
   var tieneCredito = true
 
   method peso() = 0
+
   method puedeLlamar() = tieneCredito
 
-  method cambiarCredito() {
-    tieneCredito = !tieneCredito
+  method cargar() {
+    tieneCredito = true
+  }
+
+  method gastaCredito(){
+    tieneCredito = false
   }
 }
 
@@ -37,7 +42,7 @@ object bicicleta {
 }
 
 object camion {
-  var cantidadDeAcoplados = 0
+  var cantidadDeAcoplados = 1
 
   method peso()  {
     return cantidadDeAcoplados * 500

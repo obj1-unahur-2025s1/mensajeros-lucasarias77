@@ -1,26 +1,27 @@
 import mensajeros.*
 import destinos.*
 
-object mensajeria {
-  var mensajeros = [roberto,chuckNorris,neo]
-  method despedirMensajero(unMensajero){
-    mensajeros.remove(unMensajero)
+object empresa {
+  const mensajeros = []
+
+  method despedir(alguien){
+    mensajeros.remove(alguien)
   }
 
-  method contratarMensajero(unMensajero){
-    mensajeros.add(unMensajero)
+  method contratar(empleado){
+    mensajeros.add(empleado)
   }
 
   method despedirATodos(){
-    mensajeros.removeAll(mensajeros)
+    mensajeros.clear()
   }
 
-  method tamañoMensajeria(){
+  method esGrande(){
     return mensajeros.size() > 2 
   }
 
-  method puedeSerEntragadoA(unLugar){
-    return paquete.sePuedeEntregar(mensajeros.first(),unLugar)
+  method entregaRapida(){
+    return paquete.sePuedeEntregar(mensajeros.head())
   }
 
   method pesoDelUltimoEmpleado(){
